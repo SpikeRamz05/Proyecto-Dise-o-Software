@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ESSENZA POS - Catálogo y Venta</title>
+    
+    <!-- Hojas de estilo y Scripts -->
+    <link rel="stylesheet" type="text/css" href="CSS-Proyecto/Estilo_pos.css"/>
+    <script src="pos.js" defer></script>
+</head>
+
+<body>
+    <div class="pantalla-pos">
+
+        <!-- =========================================
+            ENCABEZADO SUPERIOR (HEADER)
+        ========================================= -->
+        <header class="header-pos">
+            <div class="header-izquierda">
+                <a href="index.html" class="btn-volver-dash" title="Volver al menú">
+                    <span>←</span>
+                </a>
+
+                <div class="logo-min">
+                    <div class="logo-icono-pos">
+                        <span>✨</span>
+                    </div>
+                    <div class="logo-texto-pos">
+                        <h2>ESSENZA</h2>
+                        <span>CATÁLOGO DE DECANTS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buscador-pos">
+                <span class="icono-input">🔍</span>
+                <input type="text" placeholder="Buscar perfume, casa o nota..." id="input-busqueda">
+            </div>
+        </header>
+
+        <!-- =========================================
+            CONTENIDO PRINCIPAL (SPLIT SCREEN)
+        ========================================= -->
+        <div class="contenido-split-pos">
+
+            <!-- PANEL IZQUIERDO: CATÁLOGO -->
+            <main class="panel-catalogo">
+                
+                <header class="encabezado-catalogo">
+                    <div>
+                        <p class="etiqueta-pos">SELECCIÓN DE DISEÑADOR</p>
+                        <h1>Catálogo de perfumes</h1>
+                        <p class="subtitulo-pos">Descubre cada fragancia, elige tu presentación y crea un pedido a tu medida.</p>
+                    </div>
+                    
+                    <div class="filtro-ordenar">
+                        <span class="icono-select-ordenar">⚙️</span>
+                        <select id="select-ordenar">
+                            <option value="recomendados">Recomendados</option>
+                            <option value="precio-asc">Precio: menor a mayor</option>
+                            <option value="precio-desc">Precio: mayor a menor</option>
+                        </select>
+                    </div>
+                </header>
+
+                <!-- FILTROS DE CATEGORÍA -->
+                <nav class="filtros-categoria">
+                    <button type="button" class="btn-filtro activo">Todas</button>
+                    <button type="button" class="btn-filtro">Amaderados</button>
+                    <button type="button" class="btn-filtro">Florales</button>
+                    <button type="button" class="btn-filtro">Cítricos</button>
+                    <button type="button" class="btn-filtro">Orientales</button>
+                    <button type="button" class="btn-filtro">Frescos</button>
+                </nav>
+
+                <div class="info-resultados">
+                    <span id="contador-fragancias">10 fragancias disponibles</span>
+                    <span class="nota-precios">Precios desde presentación de 3 ml</span>
+                </div>
+
+                <!-- GRILLA DE PRODUCTOS -->
+                <section class="grilla-productos" id="grid-productos">
+                    
+                    <!-- PRODUCTO 1: SAUVAGE -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">EAU DE PARFUM</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/dior_sauvage.png" alt="Dior Sauvage">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">DIOR</p>
+                            <h3>Sauvage</h3>
+                            <div class="tags-notas">
+                                <span>Bergamota</span>
+                                <span>Pimienta</span>
+                                <span>Ambroxan</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$14.50</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PRODUCTO 2: BLEU DE CHANEL -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">EAU DE PARFUM</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/chanel_bleu.png" alt="Bleu de Chanel">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">CHANEL</p>
+                            <h3>Bleu de Chanel</h3>
+                            <div class="tags-notas">
+                                <span>Pomelo</span>
+                                <span>Incienso</span>
+                                <span>Sándalo</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$16.90</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PRODUCTO 3: LIBRE INTENSE -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">EAU DE PARFUM</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/ysl_libre.png" alt="YSL Libre Intense">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">YVES SAINT LAURENT</p>
+                            <h3>Libre Intense</h3>
+                            <div class="tags-notas">
+                                <span>Lavanda</span>
+                                <span>Azahar</span>
+                                <span>Vainilla</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$15.50</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PRODUCTO 4: ACQUA DI GIO -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">EAU DE PARFUM</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/armani_acqua_di_gio.png" alt="Acqua di Gio Profumo">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">GIORGIO ARMANI</p>
+                            <h3>Acqua di Gio Profumo</h3>
+                            <div class="tags-notas">
+                                <span>Notas Marinas</span>
+                                <span>Incienso</span>
+                                <span>Pachulí</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$15.00</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PRODUCTO 5: BACCARAT ROUGE -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">PARFUM</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/mfk_baccarat_rouge.png" alt="Baccarat Rouge 540">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">MAISON FRANCIS KURKDJIAN</p>
+                            <h3>Baccarat Rouge 540</h3>
+                            <div class="tags-notas">
+                                <span>Azafrán</span>
+                                <span>Ámbar Gris</span>
+                                <span>Cedro</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$22.00</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PRODUCTO 6: LOST CHERRY -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">EAU DE PARFUM</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/tf_lost_cherry.png" alt="Lost Cherry">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">TOM FORD</p>
+                            <h3>Lost Cherry</h3>
+                            <div class="tags-notas">
+                                <span>Cereza</span>
+                                <span>Licor</span>
+                                <span>Almendra Amarga</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$19.50</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PRODUCTO 7: AVENTUS -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">EAU DE PARFUM</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/creed_aventus.png" alt="Aventus">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">CREED</p>
+                            <h3>Aventus</h3>
+                            <div class="tags-notas">
+                                <span>Piña</span>
+                                <span>Abedul</span>
+                                <span>Almizcle</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$24.00</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PRODUCTO 8: EROS -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">EAU DE TOILETTE</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/versace_eros.png" alt="Versace Eros">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">VERSACE</p>
+                            <h3>Eros</h3>
+                            <div class="tags-notas">
+                                <span>Menta</span>
+                                <span>Manzana Verde</span>
+                                <span>Vainilla</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$12.50</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PRODUCTO 9: TOBACCO VANILLE -->
+                    <article class="card-producto">
+                        <div class="card-producto-img-check">
+                            <span class="label-tipo">EAU DE PARFUM</span>
+                            <div class="cont-img-prod">
+                                <img src="IMG/tf_tobacco_vanille.png" alt="Tobacco Vanille">
+                            </div>
+                        </div>
+                        <div class="card-producto-info">
+                            <p class="marca-producto">TOM FORD</p>
+                            <h3>Tobacco Vanille</h3>
+                            <div class="tags-notas">
+                                <span>Tabaco</span>
+                                <span>Especias</span>
+                                <span>Vainilla</span>
+                            </div>
+                            <div class="card-producto-footer">
+                                <div class="precio-cont">
+                                    <span>DESDE</span>
+                                    <strong>$21.00</strong>
+                                </div>
+                                <button class="btn-elegir" type="button">Elegir →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </section>
+
+            </main>
+
+            <!-- PANEL DERECHO: CARRITO -->
+            <aside class="panel-carrito">
+                
+                <header class="encabezado-carrito">
+                    <div class="encabezado-carrito-izq">
+                        <div class="icono-carrito">
+                            <span>🛍️</span>
+                        </div>
+                        <div>
+                            <h2>Tu pedido</h2>
+                            <p><span id="cant-productos-carrito">0</span> productos</p>
+                        </div>
+                    </div>
+                    <!-- Botón Vaciar pedido -->
+                    <button type="button" class="btn-vaciar-carrito oculto" id="btn-vaciar-carrito">Vaciar</button>
+                </header>
+
+                <!-- ESTADO VACÍO DEL CARRITO -->
+                <div class="carrito-vacio" id="carrito-vacio-msg">
+                    <div class="icono-vacio">
+                        <span>🛍️</span>
+                    </div>
+                    <h3>Tu pedido está vacío</h3>
+                    <p>Elige una fragancia y selecciona la presentación que prefieras.</p>
+                </div>
+
+                <!-- LISTA DE PRODUCTOS -->
+                <div class="carrito-productos-lista oculto"></div>
+
+                <!-- RESUMEN DE PAGO -->
+                <footer class="carrito-footer">
+                    <div class="carrito-totales">
+                        <div class="carrito-subtotal">
+                            <p>TOTAL ESTIMADO</p>
+                            <span>Impuestos en el siguiente paso</span>
+                        </div>
+                        <strong class="total-monto" id="total-carrito-monto">$0.00</strong>
+                    </div>
+
+                    <button class="btn-continuar deshabilitado" type="button" id="btn-checkout">
+                        Continuar pedido →
+                    </button>
+                    
+                    <p class="nota-existencias">
+                        <span class="icono-info-existencia">ℹ️</span>
+                        Disponibilidad sujeta a existencias
+                    </p>
+                </footer>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+    <!-- =========================================
+        VENTANA MODAL / SUBPANTALLA DE PRODUCTO
+    ========================================= -->
+    <div class="modal-overlay oculto" id="modal-producto" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="modal-card">
+            
+            <!-- Botón de cerrar -->
+            <button class="modal-cerrar" id="btn-cerrar-modal" type="button" aria-label="Cerrar modal">✕</button>
+
+            <!-- Columna Izquierda: Imagen del perfume -->
+            <div class="modal-img-container">
+                <div class="modal-img-box">
+                    <img id="modal-img" src="" alt="Perfume seleccionado">
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Información y Opciones -->
+            <div class="modal-info-container">
+                <p class="modal-marca" id="modal-marca">DIOR</p>
+                <h2 class="modal-titulo" id="modal-titulo">Sauvage</h2>
+                <p class="modal-tipo" id="modal-tipo-desc">Eau de Parfum</p>
+                
+                <p class="modal-descripcion">Una composición fresca y magnética de notas seleccionadas.</p>
+
+                <div class="modal-seccion-notas">
+                    <span class="modal-subtitulo-seccion">NOTAS PRINCIPALES</span>
+                    <div class="modal-tags-notas" id="modal-tags-notas"></div>
+                </div>
+
+                <div class="modal-seccion-presentacion">
+                    <div class="modal-header-pres">
+                        <span class="modal-subtitulo-seccion">ELIGE TU PRESENTACIÓN</span>
+                        <span class="modal-disponibles">8 disponibles</span>
+                    </div>
+
+                    <!-- Opciones de ml -->
+                    <div class="modal-opciones-ml">
+                        <button type="button" class="btn-ml activo" data-ml="3">
+                            <strong>3 ml</strong>
+                            <span>$14.50</span>
+                        </button>
+                        <button type="button" class="btn-ml" data-ml="5">
+                            <strong>5 ml</strong>
+                            <span>$21.90</span>
+                        </button>
+                        <button type="button" class="btn-ml" data-ml="10">
+                            <strong>10 ml</strong>
+                            <span>$38.50</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer del Modal -->
+                <div class="modal-footer">
+                    <div class="modal-precio-box">
+                        <span>PRECIO</span>
+                        <strong id="modal-precio-final">$14.50</strong>
+                    </div>
+                    <button class="btn-agregar-pedido" id="btn-confirmar-agregar" type="button">
+                        🛍️ Agregar al pedido
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

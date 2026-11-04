@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>ESSENZA - Decants & Parfums</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS-Proyecto/Estilo_index.css">
+        <script src="main.js" defer></script>
+    </head>
+
+    <body>
+
+        <!-- ==================================
+            PANTALLA 0: PANTALLA LOGIN
+        =================================== -->
+        <div class="pantalla-login">
+
+            <!-- PANEL IZQUIERDO -->
+            <section class="panel-izquierdo">
+
+                <!-- LOGOTIPO -->
+                <div class="logo">
+                    <div class="logo-icono">
+                        <span class="icono-imagen" role="img" aria-label="estrella logo">✨</span>
+                    </div>
+
+                    <div class="logo-texto">
+                        <h2>ESSENZA</h2>
+                        <span>DECANTS & PARFUMS</span>
+                    </div>
+                </div>
+
+                <!-- DECORACIÓN -->
+                <div class="circulo circulo-superior"></div>
+                <div class="circulo circulo-inferior"></div>
+
+                <!-- CONTENIDO PRINCIPAL -->
+                <div class="contenido-izquierdo">
+
+                    <p class="etiqueta-izquierda">
+                        PERFUMERÍA DE AUTOR · POS
+                    </p>
+
+                    <h1>
+                        Cada<br>
+                        esencia,<br>
+                        <span>a tu medida.</span>
+                    </h1>
+
+                    <p class="descripcion">
+                        Gestiona tu colección de decants, consulta fragancias y
+                        completa cada venta con precisión.
+                    </p>
+
+                </div>
+
+                <!-- PIE DEL PANEL IZQUIERDO -->
+                <footer class="footer-izquierdo">
+                    <span>Venta rápida y organizada</span>
+                    <span>2026</span>
+                </footer>
+
+            </section>
+
+            <!-- PANEL DERECHO -->
+            <section class="panel-derecho">
+
+                <!-- ENCABEZADO -->
+                <header class="encabezado-derecho">
+                    <div class="estado-terminal">
+                        <span class="punto-activo"></span>
+                        TERMINAL ACTIVA
+                    </div>
+                </header>
+
+                <!-- ==================================
+                    PANTALLA 1: SELECCIÓN DE PERFILES
+                =================================== -->
+
+                <main class="contenido-derecho" id="pantalla-perfiles">
+
+                    <p class="etiqueta-derecha">
+                        ACCESO AL PUNTO DE VENTA
+                    </p>
+
+                    <h2>¿Quién está en turno?</h2>
+
+                    <p class="subtitulo">
+                        Selecciona tu perfil para ingresar de forma segura.
+                    </p>
+
+                    <!-- Contenedor dinámico para la tarjeta de perfil y el estado vacío -->
+                    <div id="contenedor-perfiles">
+                        <div class="sin-perfiles" id="mensaje-sin-perfiles">
+                            <span class="icono-usuario" role="img" aria-label="usuario">👤</span>
+                            <h3>Aún no hay perfiles</h3>
+                            <p>Crea la primera cuenta para abrir la terminal.</p>
+                        </div>
+                    </div>
+
+                    <button class="btn-crear-cuenta"
+                            type="button"
+                            onclick="mostrarRegistro()">
+
+                        <span class="icono-mas">+</span>
+                        Crear cuenta nueva
+
+                    </button>
+
+                </main>
+
+                <!-- ==================================
+                    PANTALLA 2: CREAR CUENTA
+                =================================== -->
+
+                <main class="contenido-registro" id="pantalla-registro">
+
+                    <!-- VOLVER A PERFILES -->
+                    <button class="btn-volver"
+                            type="button"
+                            onclick="mostrarPerfiles()">
+
+                        <span>←</span>
+                        Volver a perfiles
+
+                    </button>
+
+                    <!-- TÍTULO -->
+                    <div class="encabezado-registro">
+
+                        <p class="etiqueta-derecha">
+                            NUEVO INTEGRANTE
+                        </p>
+
+                        <h2>Crear una cuenta</h2>
+
+                        <p class="subtitulo">
+                            Configura un acceso personal para operar la tienda.
+                        </p>
+
+                    </div>
+
+                    <!-- FORMULARIO DE REGISTRO (envuelto en <form>) -->
+                    <form class="formulario-registro" onsubmit="event.preventDefault(); validarRegistro();">
+
+                        <!-- NOMBRE DE USUARIO -->
+                        <div class="grupo-input">
+
+                            <label for="nombre-usuario">
+                                Nombre de usuario <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombre-usuario"
+                                placeholder="Ej. Valentina"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- CORREO -->
+                        <div class="grupo-input">
+
+                            <label for="correo-usuario">
+                                Correo <span class="opcional">(opcional)</span>
+                            </label>
+
+                            <div class="contenedor-input">
+
+                                <span class="icono-imagen" role="img" aria-label="correo">✉️</span>
+
+                                <input
+                                    type="email"
+                                    id="correo-usuario"
+                                    placeholder="nombre@tienda.com"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <!-- CONTRASEÑA -->
+                        <div class="grupo-input">
+
+                            <label for="contrasena-usuario">
+                                Contraseña <span>*</span>
+                            </label>
+
+                            <div class="contenedor-input">
+
+                                <span class="icono-imagen" role="img" aria-label="candado">🔒</span>
+
+                                <input
+                                    type="password"
+                                    id="contrasena-usuario"
+                                    placeholder="Mínimo 4 caracteres"
+                                    minlength="4"
+                                    required
+                                >
+
+                                <button type="button"
+                                        class="btn-ver-contrasena"
+                                        onclick="alternarContrasena()"
+                                        aria-label="Mostrar u ocultar contraseña">
+
+                                    <span class="icono-imagen" role="img" aria-label="ojo">👁️</span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- BOTÓN REGISTRAR Y ALERTA -->
+                        <div class="grupo-input">
+                            <div id="alerta-registro" class="alerta-error" style="display: none;">
+                                <span class="icono-imagen" role="img" aria-label="alerta">⚠️</span>
+                                <span id="texto-alerta">Completa el nombre y la contraseña.</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-registrar" type="submit">
+                            <span class="icono-mas">+</span>
+                            Crear cuenta
+                        </button>
+
+                    </form>
+
+                </main>
+
+                <!-- ==================================
+                    PANTALLA 3: LOGIN CON CONTRASEÑA
+                =================================== -->
+
+                <main class="contenido-login-usuario" id="pantalla-login-usuario" style="display: none;">
+
+                    <!-- VOLVER A PERFILES -->
+                    <button class="btn-volver" type="button" onclick="mostrarPerfiles()">
+                        <span>←</span>
+                        Cambiar de usuario
+                    </button>
+
+                    <!-- ENCABEZADO CON AVATAR Y NOMBRE -->
+                    <div class="encabezado-usuario-login">
+                        <div class="avatar-inicial avatar-grande" id="login-avatar">A</div>
+                        <div class="info-usuario-login">
+                            <p class="etiqueta-derecha">BIENVENIDO DE VUELTA</p>
+                            <h2 id="login-nombre-usuario">admin</h2>
+                        </div>
+                    </div>
+
+                    <!-- FORMULARIO DE CONTRASEÑA (envuelto en <form>) -->
+                    <form class="formulario-registro" onsubmit="event.preventDefault(); iniciarSesion();">
+
+                        <div class="grupo-input">
+                            <label for="contrasena-login">Contraseña</label>
+                            <div class="contenedor-input">
+                                <span class="icono-imagen" role="img" aria-label="candado">🔒</span>
+                                <input type="password" id="contrasena-login" placeholder="Ingresa tu contraseña">
+                                <button type="button" class="btn-ver-contrasena" onclick="alternarContrasenaLogin()" aria-label="Mostrar u ocultar contraseña">
+                                    <span class="icono-imagen" role="img" aria-label="ojo">👁️</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CUADRO DE ALERTA DE ERROR -->
+                        <div id="alerta-login" class="alerta-error" style="display: none;">
+                            <span class="icono-imagen" role="img" aria-label="escudo">🛡️</span>
+                            <span id="texto-alerta-login">Ingresa tu contraseña para continuar.</span>
+                        </div>
+
+                        <button class="btn-registrar" type="submit">
+                            Ingresar al POS →
+                        </button>
+
+                    </form>
+
+                    <!-- NOTA DE SEGURIDAD -->
+                    <div class="nota-seguridad">
+                        <span class="icono-imagen" role="img" aria-label="estrella logo">✨</span>
+                        <span>Sesión protegida en este dispositivo</span>
+                    </div>
+
+                </main>
+
+                <!-- PIE DE PÁGINA -->
+                <footer class="footer-derecho">
+
+                    <span>ESSENZA POS</span>
+                    <span>VERSIÓN 1.1</span>
+
+                </footer>
+
+            </section>
+
+        </div>
+
+        <!-- ==================================
+            PANTALLA 4: DASHBOARD / MENÚ PRINCIPAL
+        =================================== -->
+        <div id="pantalla-dashboard" class="pantalla-dashboard" style="display: none;">
+
+            <!-- ENCABEZADO SUPERIOR DEL DASHBOARD -->
+            <header class="header-dashboard">
+                <div class="logo">
+                    <div class="logo-icono">
+                        <span class="icono-imagen" role="img" aria-label="notificaciones">🔔</span>
+                    </div>
+                    <div class="logo-texto">
+                        <h2>ESSENZA</h2>
+                        <span>DECANTS & PARFUMS</span>
+                    </div>
+                </div>
+
+                <div class="usuario-header">
+                    <button class="btn-notificacion" type="button" aria-label="Notificaciones">
+                        <span class="icono-imagen" role="img" aria-label="cerrar sesion">🚪</span>
+                    </button>
+
+                    <div class="perfil-header">
+                        <div class="avatar-inicial" id="dashboard-avatar">A</div>
+                        <div class="info-turno">
+                            <span>En turno</span>
+                            <strong id="dashboard-usuario-nombre">admin</strong>
+                        </div>
+                    </div>
+
+                    <button class="btn-salir" type="button" onclick="cerrarSesion()" title="Cerrar sesión">
+                        <span class="icono-imagen" role="img" aria-label="frasco perfume">🧪</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- CONTENIDO PRINCIPAL DASHBOARD -->
+            <main class="contenido-dashboard">
+
+                <!-- BANNER PROMINENTE -->
+                <section class="banner-hero">
+                    <div class="banner-info">
+                        <p class="etiqueta-banner">MENÚ PRINCIPAL · ESSENZA POS</p>
+                        <h1>Encuentra la esencia<br><em>perfecta, más rápido.</em></h1>
+                        <p class="descripcion-banner">Consulta el catálogo, compara presentaciones y gestiona cada pedido desde un solo lugar.</p>
+
+                        <button class="btn-explorar" type="button" onclick="window.location.href='pos.html'" style="cursor: pointer;">
+                            Explorar catálogo →
+                        </button>
+                    </div>
+
+                    <div class="banner-decoracion">
+                        <!-- Silueta decorativa de frasco de perfume -->
+                        <span class="icono-imagen" role="img" aria-label="catalogo">📖</span>
+                    </div>
+                </section>
+
+                <!-- NAVEGACIÓN DE MÓDULOS -->
+                <section class="seccion-modulos">
+                    <div class="encabezado-seccion">
+                        <div>
+                            <span class="etiqueta-derecha">NAVEGACIÓN</span>
+                            <h2>Opciones principales</h2>
+                        </div>
+                        <span class="subtexto-seccion">Selecciona un módulo para comenzar</span>
+                    </div>
+
+                    <div class="grid-modulos">
+                        <!-- MÓDULO 1: CATÁLOGO Y VENTA -->
+                        <div class="card-modulo modulo-destacado" onclick="window.location.href='pos.html'" style="cursor: pointer;">
+                            <div class="card-modulo-header">
+                                <div class="icono-modulo">
+                                    <span class="icono-imagen" role="img" aria-label="pedidos">🛍️</span>
+                                </div>
+                                <div class="flecha-modulo">→</div>
+                            </div>
+                            <span class="categoria-modulo">MÓDULO PRINCIPAL</span>
+                            <h3>Catálogo y venta</h3>
+                            <p>Consulta fragancias, presentaciones, precios y disponibilidad.</p>
+                        </div>
+
+                        <!-- MÓDULO 2: PEDIDOS -->
+                        <div class="card-modulo">
+                            <div class="card-modulo-header">
+                                <div class="icono-modulo">
+                                    <span class="icono-imagen" role="img" aria-label="inventario">📦</span>
+                                </div>
+                                <span class="badge-proximamente">PRÓXIMAMENTE</span>
+                            </div>
+                            <span class="categoria-modulo">OPERACIÓN</span>
+                            <h3>Pedidos</h3>
+                            <p>Revisa compras en curso, entregas y pedidos completados.</p>
+                        </div>
+
+                        <!-- MÓDULO 3: INVENTARIO -->
+                        <div class="card-modulo">
+                            <div class="card-modulo-header">
+                                <div class="icono-modulo">
+                                    <span class="icono-imagen" role="img" aria-label="clientes">👥</span>
+                                </div>
+                                <span class="badge-proximamente">PRÓXIMAMENTE</span>
+                            </div>
+                            <span class="categoria-modulo">EXISTENCIAS</span>
+                            <h3>Inventario</h3>
+                            <p>Controla existencias por fragancia y tamaño de decant.</p>
+                        </div>
+
+                        <!-- MÓDULO 4: CLIENTES -->
+                        <div class="card-modulo">
+                            <div class="card-modulo-header">
+                                <div class="icono-modulo">
+                                    <span class="icono-imagen" role="img" aria-label="reportes">📊</span>
+                                </div>
+                                <span class="badge-proximamente">PRÓXIMAMENTE</span>
+                            </div>
+                            <span class="categoria-modulo">RELACIONES</span>
+                            <h3>Clientes</h3>
+                            <p>Consulta perfiles, preferencias e historial de compra.</p>
+                        </div>
+
+                        <!-- MÓDULO 5: REPORTES -->
+                        <div class="card-modulo">
+                            <div class="card-modulo-header">
+                                <div class="icono-modulo">
+                                    <span class="icono-imagen" role="img" aria-label="configuracion">⚙️</span>
+                                </div>
+                                <span class="badge-proximamente">PRÓXIMAMENTE</span>
+                            </div>
+                            <span class="categoria-modulo">INDICADORES</span>
+                            <h3>Reportes</h3>
+                            <p>Analiza ventas, fragancias favoritas y rendimiento.</p>
+                        </div>
+
+                        <!-- MÓDULO 6: CONFIGURACIÓN -->
+                        <div class="card-modulo">
+                            <div class="card-modulo-header">
+                                <div class="icono-modulo">
+                                    <span class="icono-imagen" role="img" aria-label="icono 20">🛠️</span>
+                                </div>
+                                <span class="badge-proximamente">PRÓXIMAMENTE</span>
+                            </div>
+                            <span class="categoria-modulo">SISTEMA</span>
+                            <h3>Configuración</h3>
+                            <p>Ajusta la tienda, usuarios, precios y preferencias.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "essenza-pos",
+  "version": "1.0.0",
+  "description": "Punto de venta Essenza",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^30.0.0"
+  }
+}
