@@ -1,0 +1,1112 @@
+/* =========================================
+   PANTALLA DE LOGIN
+========================================= */
+
+/*CONFIGURACIÓN GENERAL*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow-y: auto; /* Permite el desplazamiento vertical cuando el contenido sea más largo que la pantalla */
+}
+
+/*PANTALLA PRINCIPAL*/
+.pantalla-login {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+}
+
+/*PANEL IZQUIERDO*/
+.panel-izquierdo {
+    width: 39%;
+    height: 100%;
+    background-color: #501522;
+    color: #f7eee7;
+    position: relative;
+    overflow: hidden;
+    padding: 38px 8.5%;
+}
+
+/* LOGOTIPO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-icono {
+    width: 43px;
+    height: 43px;
+    border: 1px solid #c99a56;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e7bd72;
+    padding: 10px;
+}
+
+.logo-icono svg {
+    width: 100%;
+    height: 100%;
+}
+
+.logo-texto h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 23px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.logo-texto span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #e7bd72;
+    margin-top: 3px;
+    font-weight: bold;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido-izquierdo {
+    position: absolute;
+    top: 26.5%;
+    left: 8.5%;
+    right: 8%;
+    z-index: 2;
+}
+
+.etiqueta-izquierda {
+    color: #e7bd72;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.contenido-izquierdo h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(55px, 5.5vw, 100px);
+    font-weight: normal;
+    line-height: 0.96;
+    letter-spacing: -4px;
+}
+
+.contenido-izquierdo h1 span {
+    color: #e8bd76;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.descripcion {
+    max-width: 430px;
+    margin-top: 35px;
+    color: #d7b9b9;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* CÍRCULOS DECORATIVOS */
+.circulo {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.circulo-superior {
+    width: 405px;
+    height: 405px;
+    border: 1px solid rgba(205, 157, 91, 0.19);
+    top: 15%;
+    right: -12%;
+}
+
+.circulo-superior::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(205, 157, 91, 0.22);
+    border-radius: 50%;
+    top: 58px;
+    left: 87px;
+}
+
+.circulo-inferior {
+    width: 340px;
+    height: 340px;
+    background-color: rgba(153, 43, 67, 0.38);
+    bottom: -115px;
+    left: -80px;
+}
+
+/* PIE DEL PANEL IZQUIERDO */
+.footer-izquierdo {
+    position: absolute;
+    bottom: 0;
+    left: 8.5%;
+    right: 8.5%;
+    height: 78px;
+    border-top: 1px solid rgba(231, 189, 114, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #c99b9c;
+    font-size: 11px;
+    z-index: 2;
+}
+
+.footer-izquierdo span:last-child {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: 1px;
+}
+
+/*PANEL DERECHO*/
+.panel-derecho {
+    width: 61%;
+    height: 100%;
+    background-color: #f3ede5;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ENCABEZADO DERECHO */
+.encabezado-derecho {
+    width: 100%;
+    height: 47px;
+    border-bottom: 1px solid #ddd3c8;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 45px;
+}
+
+.estado-terminal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #826d68;
+}
+
+.punto-activo {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #718c67;
+}
+
+/* CONTENIDO DERECHO */
+.contenido-derecho {
+    width: min(650px, 75%);
+    margin-top: 178px;
+}
+
+.etiqueta-derecha {
+    color: #a02b42;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.contenido-derecho h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(32px, 3vw, 48px);
+    font-weight: normal;
+    color: #241a1a;
+    letter-spacing: -1.5px;
+}
+
+.subtitulo {
+    font-size: 15px;
+    color: #927d75;
+    margin-top: 12px;
+}
+
+/* MENSAJE SIN PERFILES */
+.sin-perfiles {
+    width: 100%;
+    height: 157px;
+    border: 1px dashed #d5c5b7;
+    border-radius: 16px;
+    margin-top: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.icono-usuario {
+    width: 27px;
+    height: 27px;
+    color: #a02b42;
+    margin-bottom: 14px;
+}
+
+.sin-perfiles h3 {
+    font-size: 14px;
+    color: #211919;
+    font-weight: bold;
+}
+
+.sin-perfiles p {
+    font-size: 13px;
+    color: #927d75;
+    margin-top: 10px;
+}
+
+/* BOTÓN CREAR CUENTA */
+.btn-crear-cuenta {
+    width: 100%;
+    height: 54px;
+    margin-top: 27px;
+    border: none;
+    border-radius: 15px;
+    background-color: #98263d;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 12px 22px rgba(117, 35, 51, 0.18);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-crear-cuenta:hover {
+    background-color: #7e1d32;
+    transform: translateY(-2px);
+}
+
+.icono-mas {
+    font-size: 22px;
+    font-weight: normal;
+    vertical-align: -2px;
+    margin-right: 7px;
+}
+
+/* PIE DEL PANEL DERECHO */
+.footer-derecho {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 47px;
+    border-top: 1px solid #ddd3c8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 45px;
+    color: #a48c80;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+/*DISEÑO RESPONSIVO*/
+@media (max-width: 1000px) {
+
+    .panel-izquierdo {
+        width: 42%;
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .panel-derecho {
+        width: 58%;
+    }
+
+    .contenido-izquierdo {
+        left: 6%;
+        right: 5%;
+    }
+
+    .contenido-izquierdo h1 {
+        font-size: clamp(48px, 6vw, 70px);
+    }
+
+    .contenido-izquierdo h1 span {
+        white-space: normal;
+    }
+
+    .contenido-derecho {
+        width: 82%;
+        margin-top: 150px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .pantalla-login {
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    .panel-izquierdo {
+        width: 100%;
+        height: 420px;
+        min-height: 420px;
+    }
+
+    .contenido-izquierdo {
+        top: 125px;
+    }
+
+    .contenido-izquierdo h1 {
+        font-size: 60px;
+    }
+
+    .descripcion {
+        font-size: 13px;
+        margin-top: 20px;
+    }
+
+    .panel-derecho {
+        width: 100%;
+        min-height: 570px;
+    }
+
+    .contenido-derecho {
+        width: 85%;
+        margin-top: 80px;
+        margin-bottom: 90px;
+    }
+
+    .contenido-derecho h2 {
+        font-size: 34px;
+    }
+
+    .encabezado-derecho {
+        padding: 0 20px;
+    }
+
+    .footer-derecho {
+        padding: 0 20px;
+    }
+}
+
+/* =========================================
+   PANTALLA 2: REGISTRO DE CUENTA
+========================================= */
+
+/* Ocultar la pantalla de registro inicialmente */
+.contenido-registro {
+    display: none;
+    width: min(650px, 75%);
+    margin-top: 68px;
+    margin-bottom: 90px;
+}
+
+/* BOTÓN VOLVER */
+.btn-volver {
+    border: none;
+    background: transparent;
+    color: #826f69;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    transition: color 0.2s;
+}
+
+.btn-volver:hover {
+    color: #98263d;
+}
+
+.btn-volver span {
+    font-size: 20px;
+}
+
+/* ENCABEZADO DE REGISTRO */
+.encabezado-registro {
+    margin-bottom: 33px;
+}
+
+.encabezado-registro .etiqueta-derecha {
+    margin-bottom: 8px;
+}
+
+.encabezado-registro h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(32px, 3vw, 48px);
+    font-weight: normal;
+    color: #241a1a;
+    letter-spacing: -1.5px;
+}
+
+.encabezado-registro .subtitulo {
+    margin-top: 12px;
+}
+
+/* CONTENEDOR DEL FORMULARIO */
+.formulario-registro {
+    width: 100%;
+    padding: 32px;
+    background-color: #faf7f2;
+    border: 1px solid #ded2c6;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(69, 43, 31, 0.07);
+}
+
+/* GRUPOS DE INPUTS */
+.grupo-input {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.grupo-input label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #302421;
+    margin-bottom: 9px;
+}
+
+.grupo-input label span {
+    color: #a02b42;
+}
+
+.grupo-input label .opcional {
+    color: #a18c82;
+    font-weight: normal;
+}
+
+/* INPUTS */
+.grupo-input input {
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    border: 1px solid #ddcfc2;
+    border-radius: 15px;
+    outline: none;
+    background-color: #fffefd;
+    color: #332522;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.grupo-input input::placeholder {
+    color: #a18c82;
+}
+
+.grupo-input input:focus {
+    border-color: #98263d;
+    box-shadow: 0 0 0 3px rgba(152, 38, 61, 0.08);
+}
+
+/* INPUTS CON ICONOS */
+.contenedor-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-input > svg {
+    position: absolute;
+    left: 15px;
+    width: 19px;
+    height: 19px;
+    color: #a18f85;
+    pointer-events: none;
+}
+
+.contenedor-input input {
+    padding-left: 47px;
+}
+
+/* BOTÓN MOSTRAR CONTRASEÑA */
+.btn-ver-contrasena {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #85766e;
+    padding: 3px;
+}
+
+.btn-ver-contrasena svg {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-ver-contrasena:hover {
+    color: #98263d;
+}
+
+/* BOTÓN CREAR CUENTA */
+.btn-registrar {
+    width: 100%;
+    height: 54px;
+    margin-top: -3px;
+    border: none;
+    border-radius: 15px;
+    background-color: #98263d;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-registrar:hover {
+    background-color: #7e1d32;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   RESPONSIVE: REGISTRO
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .contenido-registro {
+        width: 82%;
+        margin-top: 55px;
+    }
+
+    .formulario-registro {
+        padding: 25px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .contenido-registro {
+        width: 85%;
+        margin-top: 45px;
+        margin-bottom: 90px;
+    }
+
+    .btn-volver {
+        margin-bottom: 30px;
+    }
+
+    .encabezado-registro h2 {
+        font-size: 34px;
+    }
+
+    .formulario-registro {
+        padding: 22px;
+    }
+
+}
+
+/* ALERTA DE ERROR EN REGISTRO */
+.alerta-error {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #fdf2f2;
+    border: 1px solid #f5c6cb;
+    border-radius: 12px;
+    color: #a02b42;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.alerta-error svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* CONTENEDOR DE PERFILES */
+#contenedor-perfiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    margin-top: 38px;
+}
+
+/* HACE QUE EL MENSAJE VACÍO OCUPE TODO EL ANCHO DEL GRID */
+#contenedor-perfiles > .sin-perfiles {
+    grid-column: 1 / -1; /* Ocupa desde la primera hasta la última columna */
+    width: 100%;
+}
+
+/* TARJETA DE PERFIL REESTRUCTURADA */
+.tarjeta-perfil {
+    width: 100% !important; /* Fuerza a que ocupe todo el ancho de su celda en el grid */
+    background-color: #fffefd;
+    border: 1px solid #ded2c6;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(69, 43, 31, 0.05);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.tarjeta-perfil:hover {
+    border-color: #98263d;
+    transform: translateY(-2px);
+}
+
+.perfil-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden; /* Evita desbordamiento si el nombre es largo */
+}
+
+.avatar-inicial {
+    width: 42px;
+    height: 42px;
+    background-color: #1b8a5a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', serif;
+    flex-shrink: 0;
+}
+
+.detalles-usuario h3 {
+    font-size: 14px;
+    color: #241a1a;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.detalles-usuario p {
+    font-size: 11px;
+    color: #927d75;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+.flecha-perfil {
+    width: 16px;
+    height: 16px;
+    color: #927d75;
+    flex-shrink: 0;
+    margin-left: 6px;
+}
+
+/* =========================================
+   PANTALLA 3: LOGIN CON CONTRASEÑA
+========================================= */
+.contenido-login-usuario {
+    width: min(650px, 75%);
+    margin-top: 68px;
+    margin-bottom: 90px;
+}
+
+.encabezado-usuario-login {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.avatar-grande {
+    width: 68px !important;
+    height: 68px !important;
+    font-size: 28px !important;
+}
+
+.info-usuario-login h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 38px;
+    font-weight: normal;
+    color: #241a1a;
+    line-height: 1;
+}
+
+.nota-seguridad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+    color: #927d75;
+    font-size: 12px;
+}
+
+.nota-seguridad svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   PANTALLA 4: DASHBOARD / MENÚ PRINCIPAL
+========================================= */
+.pantalla-dashboard {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #f3ede5;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Garantiza el scroll con la rueda del mouse dentro del Dashboard */
+}
+
+/* HEADER DEL DASHBOARD */
+.header-dashboard {
+    width: 100%;
+    height: 70px;
+    background-color: #f3ede5;
+    border-bottom: 1px solid #ddd3c8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.header-dashboard .logo-texto h2 {
+    color: #241a1a;
+}
+
+.header-dashboard .logo-icono {
+    border-color: #98263d;
+    color: #98263d;
+}
+
+.usuario-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-notificacion, .btn-salir {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e2d7cc;
+    background-color: #fffefd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #52433d;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-notificacion:hover, .btn-salir:hover {
+    background-color: #ede3d8;
+    color: #98263d;
+}
+
+.btn-notificacion svg, .btn-salir svg {
+    width: 18px;
+    height: 18px;
+}
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fffefd;
+    border: 1px solid #e2d7cc;
+    padding: 5px 14px 5px 6px;
+    border-radius: 30px;
+}
+
+.perfil-header .avatar-inicial {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+}
+
+.info-turno {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+}
+
+.info-turno span {
+    color: #927d75;
+}
+
+.info-turno strong {
+    color: #241a1a;
+    font-size: 13px;
+}
+
+/* CONTENIDO DASHBOARD */
+.contenido-dashboard {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto 60px auto;
+}
+
+/* BANNER HERO */
+.banner-hero {
+    width: 100%;
+    background-color: #501522;
+    border-radius: 20px;
+    padding: 45px 50px;
+    color: #f7eee7;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner-info {
+    max-width: 580px;
+    z-index: 2;
+}
+
+.etiqueta-banner {
+    color: #e7bd72;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.banner-info h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.banner-info h1 em {
+    color: #e8bd76;
+    font-style: italic;
+}
+
+.descripcion-banner {
+    color: #d7b9b9;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-explorar {
+    background-color: #e7bd72;
+    color: #3b0d17;
+    border: none;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-explorar:hover {
+    background-color: #f5cf8c;
+    transform: translateY(-2px);
+}
+
+.banner-decoracion {
+    position: absolute;
+    right: 40px;
+    bottom: -20px;
+    width: 220px;
+    opacity: 0.8;
+}
+
+/* SECCIÓN MÓDULOS */
+.seccion-modulos {
+    margin-top: 45px;
+}
+
+.encabezado-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+.encabezado-seccion h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px;
+    color: #241a1a;
+    font-weight: normal;
+}
+
+.subtexto-seccion {
+    color: #927d75;
+    font-size: 13px;
+}
+
+.grid-modulos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card-modulo {
+    background-color: #fffefd;
+    border: 1px solid #ded2c6;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card-modulo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icono-modulo {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: #f5ebd9;
+    color: #705537;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icono-modulo svg {
+    width: 22px;
+    height: 22px;
+}
+
+.badge-proximamente {
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #8c7a72;
+    border: 1px solid #dcd1c5;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.categoria-modulo {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #a02b42;
+    margin-bottom: 6px;
+}
+
+.card-modulo h3 {
+    font-size: 20px;
+    color: #241a1a;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-modulo p {
+    font-size: 13px;
+    color: #85746c;
+    line-height: 1.5;
+}
+
+/* TARJETA DESTACADA (CATÁLOGO Y VENTA) */
+.modulo-destacado {
+    background-color: #802235;
+    border-color: #802235;
+    color: white;
+    cursor: pointer;
+}
+
+.modulo-destacado .icono-modulo {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.modulo-destacado .flecha-modulo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.modulo-destacado .categoria-modulo {
+    color: #e8bd76;
+}
+
+.modulo-destacado h3 {
+    color: white;
+}
+
+.modulo-destacado p {
+    color: #e4c4c4;
+}
+
+.modulo-destacado:hover {
+    transform: translateY(-3px);
+    background-color: #6e1c2d;
+}
+
+/* RESPONSIVO DASHBOARD */
+@media (max-width: 950px) {
+    .grid-modulos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .grid-modulos {
+        grid-template-columns: 1fr;
+    }
+    
+    .banner-hero {
+        padding: 30px 25px;
+    }
+
+    .banner-decoracion {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
